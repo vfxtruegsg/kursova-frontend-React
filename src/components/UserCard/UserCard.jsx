@@ -1,12 +1,16 @@
+import { useDispatch } from 'react-redux';
 import css from './UserCard.module.css';
+import { deleteUserThunk } from '../../redux/storeFunctionality/operations.js';
 
 const UserCard = ({ data }) => {
+  const dispatch = useDispatch();
+
   return (
     <li className={css.userCardContainer}>
       <img
         className={css.userAvatar}
         src={
-          data.gender == 'Male'
+          data.gender.toLowerCase() == 'male'
             ? 'https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4841.jpg'
             : 'https://img.freepik.com/premium-vector/female-user-profile-avatar-is-woman-character-screen-saver-with-emotions_505620-617.jpg'
         }
@@ -20,7 +24,12 @@ const UserCard = ({ data }) => {
       ) : (
         <p style={{ color: 'red' }}>Offline</p>
       )}
-      <button className={css.delBtn}>Delete user</button>
+      <button
+        onClick={() => dispatch(deleteUserThunk(data.id))}
+        className={css.delBtn}
+      >
+        Delete user
+      </button>
     </li>
   );
 };

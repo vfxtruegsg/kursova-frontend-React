@@ -1,0 +1,13 @@
+.goodItem {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: start;
+  justify-content: space-between;
+  column-gap: 22px;
+
+  width: 1000px;
+  padding: 12px 24px;
+
+  border: 1px solid var(--navy-blue);
+  border-radius: 8px;
+}
