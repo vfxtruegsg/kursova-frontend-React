@@ -1,0 +1,31 @@
+.header {
+  padding: 26px 0;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 22px;
+}
+
+.header {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.link {
+  font-size: 18px;
+}
+
+.activeLink {
+  font-size: 18px;
+  color: var(--blue);
+}
