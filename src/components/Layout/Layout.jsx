@@ -12,14 +12,13 @@ const Layout = () => {
       <div className={`${css.headerContainer} container`}>
         <h1 className={css.header}>
           <span style={{ display: 'flex', gap: '4px' }}>
-            <span>Admin</span>
             <span style={{ color: '#3470ff' }}>Store</span>
             <span>App</span>
           </span>
         </h1>
         <nav className={`${css.navContainer} container`}>
           <NavLink to="/" className={buildActiveLinkClass}>
-            Users
+            Assortment
           </NavLink>
           <NavLink to="/orders" className={buildActiveLinkClass}>
             Orders

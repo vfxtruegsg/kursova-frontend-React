@@ -18,26 +18,27 @@ export const getAllUsersThunk = createAsyncThunk(
   }
 );
 
-export const deleteUserThunk = createAsyncThunk(
-  'store/deleteUser',
-  async (userId, thunkAPI) => {
-    try {
-      const { data } = await baseURL.delete(`/users/${userId}`);
-      showToastSuccessMessage('Successfully deleted a user');
+// export const deleteUserThunk = createAsyncThunk(
+//   'store/deleteUser',
+//   async (userId, thunkAPI) => {
+//     try {
+//       const { data } = await baseURL.delete(`/users/${userId}`);
+//       showToastSuccessMessage('Successfully deleted a user');
 
-      return data;
-    } catch (error) {
-      showToastErrorMessage('Something went wrong');
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+//       return data;
+//     } catch (error) {
+//       showToastErrorMessage('Something went wrong');
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const getAllAssortmentGoods = createAsyncThunk(
   'store/getAllAssortmentGoods',
   async (_, thunkAPI) => {
     try {
       const { data } = await baseURL.get('/goods');
+      console.log(data.data);
 
       return data;
     } catch (error) {

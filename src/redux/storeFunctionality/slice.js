@@ -1,6 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
-  deleteUserThunk,
+  // deleteUserThunk,
   getAllAssortmentGoods,
   getAllUsersThunk,
 } from './operations.js';
@@ -27,12 +27,12 @@ const slice = createSlice({
         state.user.usersList = action.payload.data;
       })
 
-      .addCase(deleteUserThunk.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user.usersList = state.user.usersList.filter(
-          (item) => item.id !== action.payload.data.id
-        );
-      })
+      // .addCase(deleteUserThunk.fulfilled, (state, action) => {
+      //   state.isLoading = false;
+      //   state.user.usersList = state.user.usersList.filter(
+      //     (item) => item.id !== action.payload.data.id
+      //   );
+      // })
 
       .addCase(getAllAssortmentGoods.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -42,7 +42,7 @@ const slice = createSlice({
       .addMatcher(
         isAnyOf(
           getAllUsersThunk.pending,
-          deleteUserThunk.pending,
+          // deleteUserThunk.pending,
           getAllAssortmentGoods.pending
         ),
         (state) => {
@@ -53,7 +53,7 @@ const slice = createSlice({
       .addMatcher(
         isAnyOf(
           getAllUsersThunk.rejected,
-          deleteUserThunk.rejected,
+          // deleteUserThunk.rejected,
           getAllAssortmentGoods.rejected
         ),
         (state) => {
