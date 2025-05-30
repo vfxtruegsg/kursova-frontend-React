@@ -3,6 +3,7 @@ import {
   // deleteUserThunk,
   getAllAssortmentGoods,
   getAllUsersThunk,
+  getCurrentGoodInformation,
 } from './operations.js';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
 
   goods: {
     goodsList: [],
+    selectedGood: [],
   },
 
   isLoading: false,
@@ -39,11 +41,17 @@ const slice = createSlice({
         state.goods.goodsList = action.payload.data;
       })
 
+      .addCase(getCurrentGoodInformation.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.goods.selectedGood = action.payload.data;
+      })
+
       .addMatcher(
         isAnyOf(
           getAllUsersThunk.pending,
           // deleteUserThunk.pending,
-          getAllAssortmentGoods.pending
+          getAllAssortmentGoods.pending,
+          getCurrentGoodInformation.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -54,7 +62,8 @@ const slice = createSlice({
         isAnyOf(
           getAllUsersThunk.rejected,
           // deleteUserThunk.rejected,
-          getAllAssortmentGoods.rejected
+          getAllAssortmentGoods.rejected,
+          getCurrentGoodInformation.rejected
         ),
         (state) => {
           state.isLoading = false;

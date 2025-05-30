@@ -1,0 +1,57 @@
+.carDescriptionContainer {
+  display: flex;
+  gap: 72px;
+}
+/* communicate container */
+
+.communicateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.img {
+  border-radius: 19px;
+  width: 640px;
+  height: 512px;
+  object-fit: cover;
+}
+
+/*  inf container */
+
+.InfContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.basicInf {
+  max-width: 488px;
+  margin-bottom: 68px;
+}
+
+.carInf {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--dark-blue);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.price {
+  composes: header;
+  color: var(--blue);
+  margin-bottom: 32px;
+}

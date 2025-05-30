@@ -47,3 +47,17 @@ export const getAllAssortmentGoods = createAsyncThunk(
     }
   }
 );
+
+export const getCurrentGoodInformation = createAsyncThunk(
+  'store/getCurrentGoodInformation',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await baseURL.get(`/goods/${id}`);
+
+      return data;
+    } catch (error) {
+      showToastErrorMessage('Something went wrong');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

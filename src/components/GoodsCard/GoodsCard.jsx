@@ -1,9 +1,7 @@
-import { useDispatch } from 'react-redux';
 import css from './GoodsCard.module.css';
+import { Link } from 'react-router-dom';
 
 const UserCard = ({ data }) => {
-  const dispatch = useDispatch();
-
   return (
     <li className={css.userCardContainer}>
       <img
@@ -13,7 +11,9 @@ const UserCard = ({ data }) => {
       />
       <h3>{data.name}</h3>
       <p>Price: {data.price} $</p>
-      <button className={css.delBtn}>Get more information</button>
+      <Link className={css.delBtn} to={`/goods/${data.id}`}>
+        Get more information
+      </Link>
     </li>
   );
 };
