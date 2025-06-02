@@ -63,7 +63,7 @@ export const logoutUserThunk = createAsyncThunk(
   async (_, thunkApi) => {
     const token = thunkApi.getState().auth.token;
     try {
-      const data = await baseURL.post(
+      const { data } = await baseURL.post(
         '/auth/logout',
         {},
         { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }

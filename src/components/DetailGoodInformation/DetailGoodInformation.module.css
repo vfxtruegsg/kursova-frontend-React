@@ -60,6 +60,30 @@
 
 .btnContainer {
   display: flex;
-  align-items: center;
-  gap: 24px;
+  align-items: end;
+  gap: 48px;
+}
+
+/* form */
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantityInput {
+  width: 110px;
+  font-size: 18px;
+  color: var(--dark-blue);
+  padding: 8px 16px;
+
+  border: 1px solid var(--dark-blue);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.quantityInput::placeholder {
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--dark-blue);
 }

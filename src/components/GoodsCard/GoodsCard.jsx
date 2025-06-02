@@ -13,22 +13,14 @@ const UserCard = ({ data }) => {
       <p>
         Price: <span style={{ color: '#3470ff' }}>{data.price} $</span>
       </p>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 24,
-        }}
+
+      <Link
+        className="btn"
+        style={{ background: '#101828' }}
+        to={`/goods/${data.id}`}
       >
-        <button className="btn">Add to cart</button>
-        <Link
-          className="btn"
-          style={{ background: '#101828' }}
-          to={`/goods/${data.id}`}
-        >
-          Read more
-        </Link>
-      </div>
+        Read more
+      </Link>
     </li>
   );
 };

@@ -10,6 +10,7 @@ const initialState = {
     selectedGood: [],
   },
 
+  cart: {},
   isLoading: false,
 };
 

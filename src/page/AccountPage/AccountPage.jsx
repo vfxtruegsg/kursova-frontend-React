@@ -13,6 +13,7 @@ import {
   selectUserData,
 } from '../../redux/auth/selectors.js';
 import { Link } from 'react-router-dom';
+import { logoutUserThunk } from '../../redux/auth/operations.js';
 
 const GoodsPage = () => {
   const dispatch = useDispatch();
@@ -20,19 +21,28 @@ const GoodsPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
+  const logoutUser = () => {
+    dispatch(logoutUserThunk());
+  };
+
   return (
     <>
       {isLoading && <Loader />}
       <section className="container">
         {isLoggedIn ? (
-          <h2 className="header">
-            Hello,{' '}
-            <span style={{ color: '#3470ff' }}>
-              {userData.firstName} {userData.lastName}!
-            </span>
-          </h2>
+          <div className={css.isLoggedInContainer}>
+            <h2 className="header">
+              Hello,{' '}
+              <span style={{ color: '#3470ff' }}>
+                {userData.firstName} {userData.lastName}!
+              </span>
+            </h2>
+            <button onClick={logoutUser} className="btn">
+              Logout
+            </button>
+          </div>
         ) : (
-          <div className={css.unloginContainer}>
+          <div className={css.authContainer}>
             <h2 className="header">At the moment you aren't logged in :(</h2>
             <div className={css.btnContainer}>
               <Link to="/login" className="btn">
