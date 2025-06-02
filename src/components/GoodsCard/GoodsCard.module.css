@@ -17,20 +17,3 @@
   width: 220px;
   height: 210px;
 }
-
-.delBtn {
-  background: var(--blue);
-  padding: 8px 12px;
-  border-radius: 10px;
-
-  color: var(--white);
-  cursor: pointer;
-
-  transition: all var(--animation);
-}
-
-.delBtn:hover,
-.delBtn:focus {
-  opacity: 0.9;
-  transform: scale(1.05);
-}

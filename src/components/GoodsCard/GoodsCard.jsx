@@ -10,10 +10,25 @@ const UserCard = ({ data }) => {
         alt={`${data.name} image`}
       />
       <h3>{data.name}</h3>
-      <p>Price: {data.price} $</p>
-      <Link className={css.delBtn} to={`/goods/${data.id}`}>
-        Get more information
-      </Link>
+      <p>
+        Price: <span style={{ color: '#3470ff' }}>{data.price} $</span>
+      </p>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 24,
+        }}
+      >
+        <button className="btn">Add to cart</button>
+        <Link
+          className="btn"
+          style={{ background: '#101828' }}
+          to={`/goods/${data.id}`}
+        >
+          Read more
+        </Link>
+      </div>
     </li>
   );
 };

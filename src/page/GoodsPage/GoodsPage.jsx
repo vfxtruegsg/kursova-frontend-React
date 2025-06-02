@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectGoodsList,
   selectIsLoading,
-} from '../../redux/storeFunctionality/selectors.js';
+} from '../../redux/goods/selectors.js';
 import { useEffect } from 'react';
-import { getAllAssortmentGoods } from '../../redux/storeFunctionality/operations.js';
+import { getAllAssortmentGoods } from '../../redux/goods/operations.js';
 import Loader from '../../components/Loader/Loader.jsx';
 import GoodItem from '../../components/GoodItem/GoodItem.jsx';
 

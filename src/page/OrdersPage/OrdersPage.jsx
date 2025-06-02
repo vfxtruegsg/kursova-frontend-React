@@ -1,6 +1,6 @@
 import css from './OrdersPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoading } from '../../redux/storeFunctionality/selectors.js';
+import { selectIsLoading } from '../../redux/goods/selectors.js';
 import { useEffect } from 'react';
 
 const OrdersPage = () => {

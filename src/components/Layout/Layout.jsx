@@ -21,10 +21,10 @@ const Layout = () => {
             Assortment
           </NavLink>
           <NavLink to="/orders" className={buildActiveLinkClass}>
-            Orders
+            My cart
           </NavLink>
           <NavLink to="/goods" className={buildActiveLinkClass}>
-            Goods
+            Account
           </NavLink>
         </nav>
       </div>

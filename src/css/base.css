@@ -102,3 +102,22 @@ body {
   font-size: 24px;
   margin-bottom: 64px;
 }
+
+/* classic-btn */
+
+.btn {
+  background: var(--blue);
+  padding: 8px 12px;
+  border-radius: 10px;
+
+  color: var(--white);
+  cursor: pointer;
+
+  transition: all var(--animation);
+}
+
+.btn:hover,
+.btn:focus {
+  opacity: 0.9;
+  transform: scale(1.05);
+}

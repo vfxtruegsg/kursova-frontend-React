@@ -4,10 +4,10 @@ import css from './DetailGoodInformationPage.module.css';
 import {
   selectGoodInformation,
   selectIsLoading,
-} from '../../redux/storeFunctionality/selectors.js';
+} from '../../redux/goods/selectors.js';
 import DetailGoodInformation from '../../components/DetailGoodInformation/DetailGoodInformation.jsx';
 import { useEffect } from 'react';
-import { getCurrentGoodInformation } from '../../redux/storeFunctionality/operations.js';
+import { getCurrentGoodInformation } from '../../redux/goods/operations.js';
 import { useParams } from 'react-router-dom';
 
 const DetailGoodInformationPage = () => {
