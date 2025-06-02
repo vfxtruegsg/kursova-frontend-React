@@ -1,4 +1,6 @@
 import css from './LoginForm.module.css';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +10,14 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { register, handleSubmit, reset } = useForm();
+  const schema = yup.object().shape({
+    email: yup.string().email().required(),
+    password: yup.string().min(6).max(14).required(),
+  });
+
+  const { register, handleSubmit, reset } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => {
     dispatch(loginUserThunk(data))
@@ -23,18 +32,13 @@ const LoginForm = () => {
         type="text"
         placeholder="Email"
         className={css.input}
-        {...register('email', {
-          required: true,
-          pattern: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-        })}
+        {...register('email')}
       />
       <input
         type="password"
         placeholder="Password"
         className={css.input}
-        {...register('password', {
-          required: true,
-        })}
+        {...register('password')}
       />
 
       <div className={css.btnContainer}>

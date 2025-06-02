@@ -1,4 +1,6 @@
 import css from './RegisterForm.module.css';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +10,16 @@ const RegisterForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { register, handleSubmit, reset } = useForm();
+  const schema = yup.object().shape({
+    first_name: yup.string().min(2).max(16).required(),
+    last_name: yup.string().min(2).max(20).required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(6).max(14).required(),
+  });
+
+  const { register, handleSubmit, reset } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => {
     dispatch(registerUserThunk(data))
@@ -23,36 +34,25 @@ const RegisterForm = () => {
         type="text"
         placeholder="First name"
         className={css.input}
-        {...register('first_name', {
-          required: true,
-          pattern: /[A-Za-z]{1,32}/,
-        })}
+        {...register('first_name')}
       />
       <input
         type="text"
         placeholder="Last name"
         className={css.input}
-        {...register('last_name', {
-          required: true,
-          pattern: /[A-Za-z]{1,32}/,
-        })}
+        {...register('last_name')}
       />
       <input
         type="text"
         placeholder="Email"
         className={css.input}
-        {...register('email', {
-          required: true,
-          pattern: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-        })}
+        {...register('email')}
       />
       <input
         type="password"
         placeholder="Password"
         className={css.input}
-        {...register('password', {
-          required: true,
-        })}
+        {...register('password')}
       />
 
       <div className={css.btnContainer}>
