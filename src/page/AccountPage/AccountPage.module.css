@@ -1,0 +1,21 @@
+.goodsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 24px;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.unloginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}

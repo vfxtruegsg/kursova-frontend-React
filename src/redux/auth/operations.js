@@ -32,15 +32,17 @@ export const loginUserThunk = createAsyncThunk(
   'auth/login',
   async (credentials, thunkApi) => {
     try {
-      const data = await baseURL.post('/auth/login', credentials, {
+      const { data } = await baseURL.post('/auth/login', credentials, {
         withCredentials: true,
       });
 
       setAuthHeader(data.accessToken);
 
-      showToastSuccessMessage(`Welcome, ${data.first_name} ${data.last_name}!`);
+      showToastSuccessMessage(
+        `Welcome, ${data.data.first_name} ${data.data.last_name}!`
+      );
 
-      return data;
+      return data.data;
     } catch (error) {
       if (error.status === 409) {
         showToastErrorMessage('Error, user with this email not exist!');

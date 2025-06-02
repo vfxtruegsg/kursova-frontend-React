@@ -23,7 +23,7 @@ const Layout = () => {
           <NavLink to="/orders" className={buildActiveLinkClass}>
             My cart
           </NavLink>
-          <NavLink to="/goods" className={buildActiveLinkClass}>
+          <NavLink to="/account" className={buildActiveLinkClass}>
             Account
           </NavLink>
         </nav>

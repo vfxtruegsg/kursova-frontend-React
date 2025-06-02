@@ -6,10 +6,12 @@ const UsersPage = lazy(() =>
   import('./page/AssortmentGoodsPage/AssortmentGoodsPage.jsx')
 );
 const OrdersPage = lazy(() => import('./page/OrdersPage/OrdersPage.jsx'));
-const GoodsPage = lazy(() => import('./page/GoodsPage/GoodsPage.jsx'));
+const AccountPage = lazy(() => import('./page/AccountPage/AccountPage.jsx'));
 const DetailGoodInformationPage = lazy(() =>
   import('./page/DetailGoodInformationPage/DetailGoodInformationPage.jsx')
 );
+const LoginPage = lazy(() => import('./page/LoginPage/LoginPage.jsx'));
+const RegisterPage = lazy(() => import('./page/RegisterPage/RegisterPage.jsx'));
 const Loader = lazy(() => import('./components/Loader/Loader.jsx'));
 
 function App() {
@@ -20,8 +22,10 @@ function App() {
         <Routes>
           <Route path="/" element={<UsersPage />} />
           <Route path="/orders" element={<OrdersPage />} />
-          <Route path="/goods" element={<GoodsPage />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="/goods/:id" element={<DetailGoodInformationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </main>
     </Suspense>
