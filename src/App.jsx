@@ -5,7 +5,7 @@ const Layout = lazy(() => import('./components/Layout/Layout.jsx'));
 const UsersPage = lazy(() =>
   import('./page/AssortmentGoodsPage/AssortmentGoodsPage.jsx')
 );
-const OrdersPage = lazy(() => import('./page/OrdersPage/OrdersPage.jsx'));
+const CartPage = lazy(() => import('./page/CartPage/CartPage.jsx'));
 const AccountPage = lazy(() => import('./page/AccountPage/AccountPage.jsx'));
 const DetailGoodInformationPage = lazy(() =>
   import('./page/DetailGoodInformationPage/DetailGoodInformationPage.jsx')
@@ -21,7 +21,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<UsersPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/goods/:id" element={<DetailGoodInformationPage />} />
           <Route path="/login" element={<LoginPage />} />

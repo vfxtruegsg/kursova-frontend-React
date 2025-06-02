@@ -20,7 +20,7 @@ const Layout = () => {
           <NavLink to="/" className={buildActiveLinkClass}>
             Assortment
           </NavLink>
-          <NavLink to="/orders" className={buildActiveLinkClass}>
+          <NavLink to="/cart" className={buildActiveLinkClass}>
             My cart
           </NavLink>
           <NavLink to="/account" className={buildActiveLinkClass}>

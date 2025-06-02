@@ -6,7 +6,7 @@ import {
 } from '../../utils/toastMessages.js';
 
 export const getAllAssortmentGoods = createAsyncThunk(
-  'store/getAllAssortmentGoods',
+  'goods/getAllAssortmentGoods',
   async (_, thunkAPI) => {
     try {
       const { data } = await baseURL.get('/goods');
@@ -20,10 +20,26 @@ export const getAllAssortmentGoods = createAsyncThunk(
 );
 
 export const getCurrentGoodInformation = createAsyncThunk(
-  'store/getCurrentGoodInformation',
+  'goods/getCurrentGoodInformation',
   async (id, thunkAPI) => {
     try {
       const { data } = await baseURL.get(`/goods/${id}`);
+
+      return data;
+    } catch (error) {
+      showToastErrorMessage('Something went wrong');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getCartContents = createAsyncThunk(
+  'orders/getCartContents',
+  async (userId, thunkAPI) => {
+    try {
+      const { data } = await baseURL.get('/orders/getCartContents', {
+        params: { userId },
+      });
 
       return data;
     } catch (error) {
