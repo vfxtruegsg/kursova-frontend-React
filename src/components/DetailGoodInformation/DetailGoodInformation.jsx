@@ -27,10 +27,14 @@ const DetailGoodInformation = ({ data }) => {
     try {
       await baseURL.post('/orders/addToCart', goodData);
 
-      navigate('/');
+      navigate('/cart');
 
       showToastSuccessMessage('Successfully added to cart');
     } catch (error) {
+      if (error.status == 400) {
+        return showToastErrorMessage('Not enough goods in stock');
+      }
+
       showToastErrorMessage('Something went wrong');
     }
     reset();

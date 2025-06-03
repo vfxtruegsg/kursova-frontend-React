@@ -13,6 +13,7 @@ const initialState = {
 
   cartContents: {
     cartContents: [],
+    cartGood: [],
   },
 
   cart: {},

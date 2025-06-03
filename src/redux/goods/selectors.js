@@ -1,11 +1,12 @@
-// user
-
-export const selectUsersList = (state) => state.goods.user.usersList;
-
 // goods
 
 export const selectGoodsList = (state) => state.goods.goods.goodsList;
 export const selectGoodInformation = (state) => state.goods.goods.selectedGood;
+
+// cart
+
+export const selectCartWithProductData = (state) =>
+  state.goods.cartContents.cartContents;
 
 // base selectors
 
