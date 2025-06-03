@@ -11,27 +11,33 @@ const CartItems = ({ item }) => {
 
         <ul className={css.itemDetails}>
           <li>
-            <strong>Price:</strong> ${item.price}
+            <strong>Price:</strong>{' '}
+            <span style={{ color: '#3470ff' }}>{item.price} $</span>
           </li>
           <li>
             <strong>Quantity:</strong> {item.quantity}
           </li>
           <li>
-            <strong>Total:</strong> ${item.price * item.quantity}
+            <strong>Total:</strong>{' '}
+            <span style={{ color: '#3470ff' }}>
+              {item.price * item.quantity} $
+            </span>
           </li>
           <li>
             <strong>Quantities left:</strong>{' '}
             {item.stock_quantity - item.quantity}
           </li>
           <li>
-            <strong>Country:</strong> {item.country_origin}
+            <strong>Country:</strong>{' '}
+            <span style={{ color: '#3470ff' }}>{item.country_origin}</span>
           </li>
           <li>
             <strong>Added:</strong>{' '}
             {new Date(item.added_at).toLocaleDateString()}
           </li>
           <li>
-            <strong>Rating:</strong> {item.rating} ⭐
+            <strong>Rating:</strong>{' '}
+            <span style={{ color: '#f7c900' }}>{item.rating}</span> ⭐
           </li>
         </ul>
       </div>
