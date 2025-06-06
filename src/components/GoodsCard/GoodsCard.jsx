@@ -1,12 +1,16 @@
 import css from './GoodsCard.module.css';
 import { Link } from 'react-router-dom';
 
-const UserCard = ({ data }) => {
+const GoodsCard = ({ data }) => {
   return (
     <li className={css.userCardContainer}>
       <img
         className={css.userAvatar}
-        src={data.good_picture}
+        src={
+          !data.stock_quantity
+            ? 'https://solidcoreaudio.pl/wp-content/uploads/2019/12/stockout.jpg'
+            : data.good_picture
+        }
         alt={`${data.name} image`}
       />
       <h3>{data.name}</h3>
@@ -25,4 +29,4 @@ const UserCard = ({ data }) => {
   );
 };
 
-export default UserCard;
+export default GoodsCard;

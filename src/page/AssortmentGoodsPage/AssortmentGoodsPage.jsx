@@ -6,7 +6,7 @@ import {
 } from '../../redux/goods/selectors.js';
 import { useEffect } from 'react';
 import { getAllAssortmentGoods } from '../../redux/goods/operations.js';
-import UserCard from '../../components/GoodsCard/GoodsCard.jsx';
+import GoodsCard from '../../components/GoodsCard/GoodsCard.jsx';
 import Loader from '../../components/Loader/Loader.jsx';
 
 const UsersPage = () => {
@@ -21,7 +21,7 @@ const UsersPage = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <section className="container">
+      <section style={{ paddingBottom: 64 }} className="container">
         <h2 className="header">
           Products <span style={{ color: '#3470ff' }}>Store</span> App
           <span style={{ color: '#3470ff' }}> Assortment</span>
@@ -29,7 +29,7 @@ const UsersPage = () => {
 
         <ul className={css.usersList}>
           {goodsList.map((item) => (
-            <UserCard key={item.id} data={item} />
+            <GoodsCard key={item.id} data={item} />
           ))}
         </ul>
       </section>
